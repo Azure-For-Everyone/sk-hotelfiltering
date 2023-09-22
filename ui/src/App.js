@@ -115,29 +115,29 @@ class App extends React.Component {
                                     <div className="row g-2">
                                         <div className="col-md-3">
                                             <div className="date" id="date1" data-target-input="nearest">
-                                                <input type="text" className="form-control datetimepicker-input"
-                                                    placeholder="Check in" data-target="#date1" data-toggle="datetimepicker" />
+                                                <input type="text" className="form-control datetimepicker-input" id="hotel_name"
+                                                    placeholder="Hotel name" data-target="#date1" data-toggle="datetimepicker" />
                                             </div>
                                         </div>
                                         <div className="col-md-3">
                                             <div className="date" id="date2" data-target-input="nearest">
-                                                <input type="text" className="form-control datetimepicker-input" placeholder="Check out" data-target="#date2" data-toggle="datetimepicker"/>
+                                                <input type="text" className="form-control datetimepicker-input" id="hotel_address" placeholder="Address" data-target="#date2" data-toggle="datetimepicker"/>
                                             </div>
                                         </div>
                                         <div className="col-md-3">
                                             <select className="form-select">
-                                                <option selected>Adult</option>
-                                                <option value="1">Adult 1</option>
-                                                <option value="2">Adult 2</option>
-                                                <option value="3">Adult 3</option>
+                                                <option selected>Stars</option>
+                                                <option value="1">1 Star</option>
+                                                <option value="2">2 Star</option>
+                                                <option value="3">3 Star</option>
                                             </select>
                                         </div>
                                         <div className="col-md-3">
                                             <select className="form-select">
-                                                <option selected>Child</option>
-                                                <option value="1">Child 1</option>
-                                                <option value="2">Child 2</option>
-                                                <option value="3">Child 3</option>
+                                                <option selected>Beds</option>
+                                                <option value="1">1 Bed</option>
+                                                <option value="2">2 Beds</option>
+                                                <option value="3">3 Beds</option>
                                             </select>
                                         </div>
                                     </div>
@@ -149,64 +149,8 @@ class App extends React.Component {
                         </div>
                     </div>
                 </div>
-                
-                <div className="container-xxl py-5">
-                    <div className="container">
-                        <div className="row g-5 align-items-center">
-                            <div className="col-lg-6">
-                                <h6 className="section-title text-start text-primary text-uppercase">About Us</h6>
-                                <h1 className="mb-4">Welcome to <span className="text-primary text-uppercase">Hotelier</span></h1>
-                                <p className="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                                <div className="row g-3 pb-4">
-                                    <div className="col-sm-4 wow fadeIn" data-wow-delay="0.1s">
-                                        <div className="border rounded p-1">
-                                            <div className="border rounded text-center p-4">
-                                                <i className="fa fa-hotel fa-2x text-primary mb-2"></i>
-                                                <h2 className="mb-1" data-toggle="counter-up">1234</h2>
-                                                <p className="mb-0">Rooms</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-4 wow fadeIn" data-wow-delay="0.3s">
-                                        <div className="border rounded p-1">
-                                            <div className="border rounded text-center p-4">
-                                                <i className="fa fa-users-cog fa-2x text-primary mb-2"></i>
-                                                <h2 className="mb-1" data-toggle="counter-up">1234</h2>
-                                                <p className="mb-0">Staffs</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-4 wow fadeIn" data-wow-delay="0.5s">
-                                        <div className="border rounded p-1">
-                                            <div className="border rounded text-center p-4">
-                                                <i className="fa fa-users fa-2x text-primary mb-2"></i>
-                                                <h2 className="mb-1" data-toggle="counter-up">1234</h2>
-                                                <p className="mb-0">Clients</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a className="btn btn-primary py-3 px-5 mt-2" href="">Explore More</a>
-                            </div>
-                            <div className="col-lg-6">
-                                <div className="row g-3">
-                                    <div className="col-6 text-end">
-                                        <img className="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="img/about-1.jpg" style={{marginTop: "25%"}}></img>
-                                    </div>
-                                    <div className="col-6 text-start">
-                                        <img className="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="img/about-2.jpg"></img>
-                                    </div>
-                                    <div className="col-6 text-end">
-                                        <img className="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="img/about-3.jpg"></img>
-                                    </div>
-                                    <div className="col-6 text-start">
-                                        <img className="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="img/about-4.jpg"></img>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+
                 
                 <div className="container-xxl py-5">
                     <div className="container">
@@ -215,96 +159,34 @@ class App extends React.Component {
                             <h1 className="mb-5">Explore Our <span className="text-primary text-uppercase">Rooms</span></h1>
                         </div>
                         <div className="row g-4">
-                            <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                                <div className="room-item shadow rounded overflow-hidden">
-                                    <div className="position-relative">
-                                        <img className="img-fluid" src="img/room-1.jpg" alt=""></img>
-                                        <small className="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
-                                    </div>
-                                    <div className="p-4 mt-2">
-                                        <div className="d-flex justify-content-between mb-3">
-                                            <h5 className="mb-0">Junior Suite</h5>
-                                            <div className="ps-2">
-                                                <small className="fa fa-star text-primary"></small>
-                                                <small className="fa fa-star text-primary"></small>
-                                                <small className="fa fa-star text-primary"></small>
-                                                <small className="fa fa-star text-primary"></small>
-                                                <small className="fa fa-star text-primary"></small>
+                            { this.props.hotels.map((hotel, index) => {
+                                return <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                    <div className="room-item shadow rounded overflow-hidden">
+                                        <div className="position-relative">
+                                            <img className="img-fluid" src={"img/"+hotel.image+".jpg"} alt=""></img>
+                                            <small className="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">${hotel.price}/Night</small>
+                                        </div>
+                                        <div className="p-4 mt-2">
+                                            <div className="d-flex justify-content-between mb-3">
+                                                <h5 className="mb-0">{hotel.name}</h5>
+                                                <div className="ps-2">
+                                                    {  [...Array(hotel.stars)].map((e, i) => { return <small className="fa fa-star text-primary"></small> }) }
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="d-flex mb-3">
-                                            <small className="border-end me-3 pe-3"><i className="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                            <small className="border-end me-3 pe-3"><i className="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                            <small><i className="fa fa-wifi text-primary me-2"></i>Wifi</small>
-                                        </div>
-                                        <p className="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
-                                        <div className="d-flex justify-content-between">
-                                            <a className="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                            <a className="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                                            <div className="d-flex mb-3">
+                                                <small className="border-end me-3 pe-3"><i className="fa fa-bed text-primary me-2"></i>{hotel.beds} Bed</small>
+                                                <small className="border-end me-3 pe-3"><i className="fa fa-bath text-primary me-2"></i>{hotel.bathrooms} Bath</small>
+                                                { hotel.has_wifi && <small><i className="fa fa-wifi text-primary me-2"></i>Wifi</small> }
+                                            </div>
+                                            <p className="text-body mb-3">{hotel.description}</p>
+                                            <div className="d-flex justify-content-between">
+                                                <a className="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
+                                                <a className="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                                <div className="room-item shadow rounded overflow-hidden">
-                                    <div className="position-relative">
-                                        <img className="img-fluid" src="img/room-2.jpg" alt=""></img>
-                                        <small className="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
-                                    </div>
-                                    <div className="p-4 mt-2">
-                                        <div className="d-flex justify-content-between mb-3">
-                                            <h5 className="mb-0">Executive Suite</h5>
-                                            <div className="ps-2">
-                                                <small className="fa fa-star text-primary"></small>
-                                                <small className="fa fa-star text-primary"></small>
-                                                <small className="fa fa-star text-primary"></small>
-                                                <small className="fa fa-star text-primary"></small>
-                                                <small className="fa fa-star text-primary"></small>
-                                            </div>
-                                        </div>
-                                        <div className="d-flex mb-3">
-                                            <small className="border-end me-3 pe-3"><i className="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                            <small className="border-end me-3 pe-3"><i className="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                            <small><i className="fa fa-wifi text-primary me-2"></i>Wifi</small>
-                                        </div>
-                                        <p className="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
-                                        <div className="d-flex justify-content-between">
-                                            <a className="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                            <a className="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                                <div className="room-item shadow rounded overflow-hidden">
-                                    <div className="position-relative">
-                                        <img className="img-fluid" src="img/room-3.jpg" alt=""></img>
-                                        <small className="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
-                                    </div>
-                                    <div className="p-4 mt-2">
-                                        <div className="d-flex justify-content-between mb-3">
-                                            <h5 className="mb-0">Super Deluxe</h5>
-                                            <div className="ps-2">
-                                                <small className="fa fa-star text-primary"></small>
-                                                <small className="fa fa-star text-primary"></small>
-                                                <small className="fa fa-star text-primary"></small>
-                                                <small className="fa fa-star text-primary"></small>
-                                                <small className="fa fa-star text-primary"></small>
-                                            </div>
-                                        </div>
-                                        <div className="d-flex mb-3">
-                                            <small className="border-end me-3 pe-3"><i className="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                            <small className="border-end me-3 pe-3"><i className="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                            <small><i className="fa fa-wifi text-primary me-2"></i>Wifi</small>
-                                        </div>
-                                        <p className="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
-                                        <div className="d-flex justify-content-between">
-                                            <a className="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                            <a className="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            })}
                         </div>
                     </div>
                 </div>

@@ -7,22 +7,15 @@ import json
 
 Hotels = [
     {
-        "address": "123 Main St",
-        "name": "Hotel 1",
-        "country": "Ireland",
-        "stars": "5",
-    },
-    {
-        "name": "Hotel 2",
-        "address": "456 Main St",
-        "country": "Austria",
+        "address": "Mercè Rodoreda, 7, 17300, Blanes, Spain",
+        "name": "Located in Blanes in Costa Brava, Beverly Park Hotel & Spa Blanes is a four-star family hotel with a gym and swimming pool.",
+        "country": "Spain",
         "stars": "4",
-    },
-    {
-        "name": "Hotel 3",
-        "address": "789 Main St",
-        "country": "Belgium",
-        "stars": "3",
+        "beds": "2",
+        "bathrooms": "1",
+        "has_wifi": "true",
+        "price": "90",
+        "image": "room-2",
     },
 ]
 

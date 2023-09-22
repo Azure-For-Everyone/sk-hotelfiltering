@@ -1,9 +1,9 @@
-import semantic_kernel as sk
-from plugins.HotelPlugin.Filter import Filter
-from plugins.MathPlugin.Math import Math
-from semantic_kernel.planning.basic_planner import BasicPlanner
-import config.add_completion_service
+
 import json
+import semantic_kernel as sk
+import config.add_completion_service
+from plugins.HotelPlugin.Filter import Filter
+from semantic_kernel.planning.basic_planner import BasicPlanner
 
 async def main():
     # Initialize the kernel
@@ -13,9 +13,8 @@ async def main():
     # kernel.add_chat_service()
     kernel.add_completion_service()
 
-
     # Import the native functions
-    hotel_plugin = kernel.import_skill(Filter(), "HotelPlugin")
+    kernel.import_skill(Filter(), "HotelPlugin")
     
     ask = "System: You summarize the users question into in a single sentence."
     ask = ask + "User: What hotels do we have in Belgium which have a maximum of 2 stars and has a nice a cinema?"

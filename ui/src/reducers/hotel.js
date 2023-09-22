@@ -11,6 +11,12 @@ const hotel = (
         ...state,
         hotels: action.hotels,
       };
+    
+    case 'FILTER_HOTELS':
+      return {
+        ...state,
+        hotels: action.hotels,
+      };
 
     default:
       return state;

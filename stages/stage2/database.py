@@ -1,0 +1,147 @@
+# A list of hotels
+HOTELS = [
+    {
+        "address": "Mercè Rodoreda, 7, 17300, Blanes, Spain",
+        "name": "Beverly Park Hotel & Spa Blanes",
+        "description": "Located in Blanes in Costa Brava, Beverly Park Hotel & Spa Blanes is a four-star family hotel with a gym and swimming pool.",
+        "country": "Spain",
+        "stars": 4,
+        "beds": 2,
+        "bathrooms": 1,
+        "has_wifi": True,
+        "price": 90,
+        "image": "room-1.jpg"
+    },
+    {
+        "address": "Calle Imaginario, 1, 17001, Girona, Spain",
+        "name": "El Castillo Mystico",
+        "description": "Nestled atop a secluded hill, El Castillo Mystico offers breathtaking views of Costa Brava with luxurious rooms and an exclusive spa.",
+        "country": "Spain",
+        "stars": 5,
+        "beds": 2,
+        "bathrooms": 1,
+        "has_wifi": True,
+        "price": 120,
+        "image": "room-2.jpg"
+    },
+    {
+        "address": "Via Imaginaria, 20, 17140, Ullà, Spain",
+        "name": "Casa de Suenos Resort",
+        "description": "Experience the ultimate relaxation at Casa de Suenos, offering top-tier amenities, luxurious accommodations, and unparalleled service.",
+        "country": "Spain",
+        "stars": 5,
+        "beds": 3,
+        "bathrooms": 2,
+        "has_wifi": False,
+        "price": 210,
+        "image": "room-3.jpg"
+    },
+    {
+        "address": "Avenida Fantasia, 30, 17480, Roses, Spain",
+        "name": "Villa Maravillosa",
+        "description": "Immerse yourself in opulence and comfort at Villa Maravillosa, featuring an award-winning restaurant, spacious suites, and a private beach.",
+        "country": "Spain",
+        "stars": 5,
+        "beds": 1,
+        "bathrooms": 1,
+        "has_wifi": False,
+        "price": 180,
+        "image": "room-4.png"
+    },
+    {
+        "address": "Plaza Ficticia, 10, 17230, Palamós, Spain",
+        "name": "La Luz del Mar Hotel",
+        "description": "An enchanting seaside resort offering gourmet cuisine, elegant rooms, and a serene environment.",
+        "country": "Spain",
+        "stars": 4,
+        "beds": 2,
+        "bathrooms": 1,
+        "has_wifi": True,
+        "price": 150,
+        "image": "room-5.png"
+    },
+    {
+        "address": "Calle Inventada, 2, 17220, Sant Feliu de Guíxols, Spain",
+        "name": "La Perla Encantadora",
+        "description": "Indulge in the coastal charm of La Perla Encantadora, featuring exquisite dining, elegant rooms, and beachside bliss.",
+        "country": "Spain",
+        "stars": 4,
+        "beds": 2,
+        "bathrooms": 1,
+        "has_wifi": True,
+        "price": 130,
+        "image": "room-6.png"
+    },
+    {
+        "address": "Avenida Imaginada, 3, 17320, Tossa de Mar, Spain",
+        "name": "Retiro Tranquilo Resort",
+        "description": "Discover peace and luxury at Retiro Tranquilo, offering rejuvenating spa services, gourmet cuisine, and stunning views.",
+        "country": "Spain",
+        "stars": 5,
+        "beds": 3,
+        "bathrooms": 2,
+        "has_wifi": True,
+        "price": 200,
+        "image": "room-7.png"
+    },
+    {
+        "address": "Paseo Falso, 19, 17130, L'Escala, Spain",
+        "name": "Palacio del Mar",
+        "description": "Revel in the opulence of Palacio del Mar, featuring lavish suites, oceanfront dining, and exceptional service.",
+        "country": "Spain",
+        "stars": 1,
+        "beds": 2,
+        "bathrooms": 1,
+        "has_wifi": True,
+        "price": 190,
+        "image": "room-8.png"
+    },
+    {
+        "address": "Plaza Inexistente, 20, 17250, Platja d'Aro, Spain",
+        "name": "Refugio del Sol",
+        "description": "Bask in the warmth of Refugio del Sol, offering radiant accommodations, a sparkling pool, and sun-soaked relaxation.",
+        "country": "Spain",
+        "stars": 2,
+        "beds": 1,
+        "bathrooms": 1,
+        "has_wifi": False,
+        "price": 160,
+        "image": "room-9.png"
+    },
+    {
+        "address": "Bulevar Encantado, 21, 17490, Llançà, Spain",
+        "name": "El Oasis Elegante",
+        "description": "El Oasis Elegante stands as a beacon of luxury and comfort, with a gourmet restaurant, soothing spa, and ocean-view suites, in the heart of Costa Brava.",
+        "country": "Spain",
+        "stars": 5,
+        "beds": 2,
+        "bathrooms": 2,
+        "has_wifi": True,
+        "price": 170,
+        "image": "room-10.png"
+    },
+    {
+        "address": "Carrer Ilusorio, 22, 17488, Cadaqués, Spain",
+        "name": "La Joya del Mar",
+        "description": "La Joya del Mar offers an exquisite blend of comfort and elegance, with its beachfront location, gourmet dining, and panoramic views of the sea.",
+        "country": "Spain",
+        "stars": 5,
+        "beds": 3,
+        "bathrooms": 2,
+        "has_wifi": True,
+        "price": 200,
+        "image": "room-11.png"
+    },
+    {
+        "address": "Via Fantasia, 23, 17123, Begur, Spain",
+        "name": "El Refugio Romántico",
+        "description": "Nestled in the scenic hills of Costa Brava, El Refugio Romántico provides a serene getaway with luxurious suites, a tranquil spa, and romantic dining experiences.",
+        "country": "Spain",
+        "stars": 4,
+        "beds": 2,
+        "bathrooms": 1,
+        "has_wifi": True,
+        "price": 180,
+        "image": "room-12.png"
+    }
+]

@@ -3,21 +3,6 @@ from semantic_kernel.skill_definition import (
     sk_function_context_parameter,
 )
 from semantic_kernel.orchestration.sk_context import SKContext
-import json
-
-Hotels = [
-    {
-        "address": "Mercè Rodoreda, 7, 17300, Blanes, Spain",
-        "name": "Located in Blanes in Costa Brava, Beverly Park Hotel & Spa Blanes is a four-star family hotel with a gym and swimming pool.",
-        "country": "Spain",
-        "stars": "4",
-        "beds": "2",
-        "bathrooms": "1",
-        "has_wifi": "true",
-        "price": "90",
-        "image": "room-2",
-    },
-]
 
 class Filter:
     @sk_function(

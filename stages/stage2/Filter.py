@@ -30,6 +30,10 @@ class Filter:
         name="max_stars",
         description="The maximum number of stars the hotel has",
     )
+    @sk_function_context_parameter(
+        name="has_wifi",
+        description="Whether the hotel has wifi or not",
+    )
     def filter(self, context: SKContext) -> str:
 
         # Copy the list of hotels in a new var
@@ -68,6 +72,15 @@ class Filter:
                 max_stars = context["max_stars"]
                 print("max_stars:" + str(max_stars))
                 filtered_hotels = [hotel for hotel in filtered_hotels if hotel['stars'] <= max_stars]
+        except:
+            pass
+        
+        # If context contains has_wifi.
+        try:
+            if context["has_wifi"] is not None and context["has_wifi"] != "":
+                has_wifi = context["has_wifi"]
+                print("has_wifi:" + str(has_wifi))
+                filtered_hotels = [hotel for hotel in filtered_hotels if hotel['has_wifi'] == has_wifi]
         except:
             pass
         

@@ -47,7 +47,7 @@ function Header() {
                                 <img className="w-100" src="img/carousel-1.jpg" alt="Image"></img>
                                 <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                     <div className="p-3" style={{maxWidth: "700px"}}>
-                                        <h6 className="section-title text-white text-uppercase mb-3 animated slideInDown">Luxury Living</h6>
+                                        <h6 className="section-title text-white text-uppercase mb-3 animated slideInDown">Siesta Hotels</h6>
                                         <h1 className="display-3 text-white mb-4 animated slideInDown">Discover A Hotel in Costa Brava</h1>
                                         <a href="" className="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Our Rooms</a>
                                         <a href="" className="btn btn-light py-md-3 px-md-5 animated slideInRight">Book A Room</a>

@@ -35,7 +35,7 @@ export function doFilterHotels(filter, onSuccess, onError) {
 }
 
 export function doFilterHotelsWithSemanticSearch(search, onSuccess, onError) {
-  const endpoint = API.post(`hotels/filter-with-semantickernel`, search);
+  const endpoint = API.post(`hotels/filter-with-semantickernel`, {search});
   endpoint
     .then((res) => {
       if (res.status !== 200) {

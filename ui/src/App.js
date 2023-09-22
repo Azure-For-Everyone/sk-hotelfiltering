@@ -29,10 +29,7 @@ class App extends React.Component {
     }
 
     filterHotelsWithSemanticSearch(){
-        // Get dom element with id "hotel_name"
-        const search = document.getElementById("semantic_search").value;
-        const { dispatchFilterHotelsWithSemanticSearch } = this.props;
-        dispatchFilterHotelsWithSemanticSearch(search);
+        // Todo...
     }
 
     render() {
@@ -94,7 +91,7 @@ class App extends React.Component {
                             <h1 className="mb-5">Explore Our <span className="text-primary text-uppercase">Rooms</span></h1>
                         </div>
 
-
+                        { /*
                         <div className="bg-white shadow" style={{padding: "35px"}}>
                             <div className="container">
                                 <div className="row g-2">
@@ -106,7 +103,8 @@ class App extends React.Component {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
+                        */  }
 
                         <div className="row g-4">
                             { this.props.hotels.map((hotel, index) => {

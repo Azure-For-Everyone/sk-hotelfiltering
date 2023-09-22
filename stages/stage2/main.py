@@ -2,12 +2,13 @@ import json
 import quart
 import quart_cors
 from quart import request
+from database import HOTELS
 
 import semantic_kernel as sk
 from semantic_kernel.planning.basic_planner import BasicPlanner
 import config.add_completion_service
+
 from plugins.HotelPlugin.Filter import Filter
-from database import HOTELS
 
 app = quart_cors.cors(quart.Quart(__name__), allow_origin="http://localhost:3000")
 
@@ -47,29 +48,39 @@ async def filter_hotel():
 
 @app.post("/hotels/filter-with-semantickernel")
 async def filter_hotel_with_sk():
-    # Initialize the kernel
-    kernel = sk.Kernel()
-    # Add a text or chat completion service using either:
-    # kernel.add_text_completion_service()
-    # kernel.add_chat_service()
-    kernel.add_completion_service()
-
-    # Import the native functions
-    kernel.import_skill(Filter(), "HotelPlugin")
     
-    ask = "System: You summarize the users question into in a single sentence."
-    ask = ask + "User: What hotels do we have in Belgium which have a maximum of 2 stars and has a nice a cinema?"
+     # We expect a filter
+    filter = await quart.request.get_json(force=True)
+    search = filter['search']
 
-    planner = BasicPlanner()
-    plan = await planner.create_plan_async(ask, kernel)
-    print(plan)
+    if search != "":
+        # Initialize the semantic kernel
+        kernel = sk.Kernel()
+        # Add a text or chat completion service using either:
+        # kernel.add_text_completion_service()
+        # kernel.add_chat_service()
+        kernel.add_completion_service()
 
-    # Execute the plan
-    result = await planner.execute_plan_async(plan, kernel)
+        # Import the native functions
+        kernel.import_skill(Filter(HOTELS), "HotelPlugin")
 
-    # Parse the json string to object
-    print(result)
-    return quart.Response(response=json.dumps(HOTELS), status=200)
+        # Create a prompt
+        ask = "System: You summarize the users question into in a single sentence." + "\n"
+        #ask = ask + "User: What hotels do we have in Belgium which have a maximum of 2 stars and has a nice a cinema?"
+        ask = ask + "User: " + search
+        
+        # Create a plan, this will return a list of steps and plugins to execute.
+        planner = BasicPlanner()
+        plan = await planner.create_plan_async(ask, kernel)
+        print(plan)
+
+        # Execute the plan
+        filtered_hotels = await planner.execute_plan_async(plan, kernel)
+        
+        # Parse the json string to object
+        return quart.Response(response=filtered_hotels, status=200)
+    else:
+        return quart.Response(response=json.dumps(HOTELS), status=200)
 
 
 @app.post("/hotels")

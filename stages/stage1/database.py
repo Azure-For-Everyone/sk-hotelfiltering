@@ -10,6 +10,6 @@ HOTELS = [
         "bathrooms": 1,
         "has_wifi": True,
         "price": 90,
-        "image": "room-1"
+        "image": "room-1.jpg"
     }
 ]

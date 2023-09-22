@@ -94,7 +94,6 @@ class App extends React.Component {
                             <h1 className="mb-5">Explore Our <span className="text-primary text-uppercase">Rooms</span></h1>
                         </div>
 
-
                         <div className="bg-white shadow" style={{padding: "35px"}}>
                             <div className="container">
                                 <div className="row g-2">

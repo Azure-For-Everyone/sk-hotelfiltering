@@ -9,6 +9,8 @@ readme = "README.md"
 python = "^3.8"
 semantic-kernel = "^0.3.13.dev0"
 python-dotenv = "^1.0.0"
+quart = "^0.18.4"
+quart-cors = "^0.6.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.3.0"

@@ -1,0 +1,18 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "Hotel Booker (no auth)",
+    "name_for_model": "hotelbooker",
+    "description_for_human": "Manages hotel bookings, advice hotels, book a hotel or room, etc.",
+    "description_for_model": "Plugin for Hotel Booking, Get Hotels, Book hotel, Cancel bookings, etc.",
+    "auth": {
+      "type": "none"
+    },
+    "api": {
+      "type": "openapi",
+      "url": "http://localhost:5003/openapi.yaml"
+    },
+    "logo_url": "http://localhost:5003/logo.png",
+    "contact_email": "legal@example.com",
+    "legal_info_url": "http://example.com/legal"
+  }
+  

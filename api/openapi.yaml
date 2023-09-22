@@ -1,0 +1,54 @@
+openapi: 3.0.1
+info:
+  title: Hotel Booking Plugin
+  description: A plugin that allows a user to retrieve hotels, book a hotel, or cancel a booking.
+  version: 'v1'
+servers:
+  - url: http://localhost:5003
+paths:
+  /hotels:
+    get:
+      operationId: getHotels
+      summary: Get the list of hotels
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getHotelsResponse'
+    post:
+      operationId: addHotel
+      summary: Add a hotel to the list
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/addHotelRequest'
+      responses:
+        "200":
+          description: OK
+components:
+  schemas:
+    getHotelsResponse:
+      type: object
+      properties:
+        hotels:
+          type: array
+          items:
+            type: object
+          description: The list of hotels.
+    addHotelRequest:
+      type: object
+      required:
+      - hotel
+      properties:
+        name:
+          type: string
+          description: The name of the hotel
+          required: true
+        address:
+          type: string
+          description: The address of the hotel
+          required: true

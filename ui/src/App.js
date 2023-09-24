@@ -29,7 +29,10 @@ class App extends React.Component {
     }
 
     filterHotelsWithSemanticSearch(){
-        // Todo...
+        // Get dom element with id "hotel_name"
+        const search = document.getElementById("semantic_search").value;
+        const { dispatchFilterHotelsWithSemanticSearch } = this.props;
+        dispatchFilterHotelsWithSemanticSearch(search);
     }
 
     render() {

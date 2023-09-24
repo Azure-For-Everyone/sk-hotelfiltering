@@ -6,6 +6,11 @@ import {
 
 export const getHotels = (onSuccess, onError) => {
   return (dispatch) => {
+    
+    dispatch({
+      type: 'LOADING_HOTELS',
+    });
+
     doGetHotels(
       (hotels) => {
         dispatch({
@@ -27,6 +32,11 @@ export const getHotels = (onSuccess, onError) => {
 
 export const filterHotels = (filter, onSuccess, onError) => {
   return (dispatch) => {
+
+    dispatch({
+      type: 'LOADING_HOTELS',
+    });
+
     doFilterHotels(
       filter,
       (hotels) => {
@@ -49,6 +59,11 @@ export const filterHotels = (filter, onSuccess, onError) => {
 
 export const filterHotelsWithSemanticSearch = (search, onSuccess, onError) => {
   return (dispatch) => {
+
+    dispatch({
+      type: 'LOADING_HOTELS',
+    });
+
     doFilterHotelsWithSemanticSearch(
       search,
       (hotels) => {

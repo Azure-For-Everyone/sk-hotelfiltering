@@ -1,6 +1,7 @@
 const hotel = (
   state = {
     hotels: [],
+    loading: false,
   },
   action
 ) => {
@@ -10,12 +11,20 @@ const hotel = (
       return {
         ...state,
         hotels: action.hotels,
+        loading: false,
+      };
+
+    case 'LOADING_HOTELS':
+      return {
+        ...state,
+        loading: true,
       };
     
     case 'FILTER_HOTELS':
       return {
         ...state,
         hotels: action.hotels,
+        loading: false,
       };
 
     default:

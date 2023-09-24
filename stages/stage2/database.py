@@ -137,7 +137,7 @@ HOTELS = [
         "name": "El Refugio Romántico",
         "description": "Nestled in the scenic hills of Costa Brava, El Refugio Romántico provides a serene getaway with luxurious suites, a tranquil spa, and romantic dining experiences.",
         "country": "Spain",
-        "stars": 4,
+        "stars": 1,
         "beds": 2,
         "bathrooms": 1,
         "has_wifi": True,

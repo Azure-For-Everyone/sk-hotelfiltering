@@ -101,11 +101,12 @@ class App extends React.Component {
                                         <input type="text" className="form-control datetimepicker-input" id="semantic_search" placeholder="Do some magic search using semantic kernel.."/>
                                     </div>
                                     <div className="col-md-2">
-                                        <button onClick={this.filterHotelsWithSemanticSearch} className="btn btn-primary w-100">Submit</button>
+                                        { !this.props.loading && <button onClick={this.filterHotelsWithSemanticSearch} className="btn btn-primary w-100">Submit</button> }
+                                        { this.props.loading && <button className="btn btn-primary w-100"><div class="lds-dual-ring"></div> Loading..</button> }
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
 
                         <div className="row g-4">
                             { this.props.hotels.map((hotel, index) => {
@@ -149,6 +150,7 @@ class App extends React.Component {
 
 const mapStateToProps = (state /* , ownProps */) => ({
     hotels: state.hotel.hotels,
+    loading: state.hotel.loading,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -41,8 +41,6 @@ components:
           description: The list of hotels.
     addHotelRequest:
       type: object
-      required:
-      - hotel
       properties:
         name:
           type: string
@@ -51,4 +49,28 @@ components:
         address:
           type: string
           description: The address of the hotel
+          required: true
+        country:
+          type: string
+          description: The country of the hotel
+          required: true
+        stars:
+          type: integer
+          description: The number of stars of the hotel
+          required: true
+        beds:
+          type: integer
+          description: The number of beds in the hotel
+          required: true
+        bathrooms:
+          type: integer
+          description: The number of bathrooms in the hotel
+          required: true
+        has_wifi:
+          type: boolean
+          description: Whether the hotel has wifi or not
+          required: true
+        price:
+          type: integer
+          description: The price of the hotel
           required: true

@@ -9,7 +9,7 @@ from semantic_kernel.planning.basic_planner import BasicPlanner
 import config.add_completion_service
 from plugins.HotelPlugin.Filter import Filter
 
-app = quart_cors.cors(quart.Quart(__name__), allow_origin="http://localhost:3000")
+app = quart_cors.cors(quart.Quart(__name__), allow_origin=["http://localhost:3000","http://localhost:3001"])
 
 @app.get("/hotels")
 async def get_hotels():

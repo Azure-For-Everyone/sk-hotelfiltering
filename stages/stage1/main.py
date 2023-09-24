@@ -4,7 +4,7 @@ import quart_cors
 from quart import request
 from database import HOTELS
 
-app = quart_cors.cors(quart.Quart(__name__), allow_origin="http://localhost:3000")
+app = quart_cors.cors(quart.Quart(__name__), allow_origin=["http://localhost:3000","http://localhost:3001"])
 
 @app.get("/hotels")
 async def get_hotels():

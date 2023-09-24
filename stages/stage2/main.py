@@ -7,7 +7,6 @@ from database import HOTELS
 import semantic_kernel as sk
 from semantic_kernel.planning.basic_planner import BasicPlanner
 import config.add_completion_service
-
 from plugins.HotelPlugin.Filter import Filter
 
 app = quart_cors.cors(quart.Quart(__name__), allow_origin="http://localhost:3000")
@@ -69,14 +68,19 @@ async def filter_hotel_with_sk():
         #ask = ask + "User: What hotels do we have in Belgium which have a maximum of 2 stars and has a nice a cinema?"
         ask = ask + "User: " + search
         
-        # Create a plan, this will return a list of steps and plugins to execute.
-        planner = BasicPlanner()
-        plan = await planner.create_plan_async(ask, kernel)
-        print(plan)
+        filtered_hotels = json.dumps(HOTELS.copy())
+        try:
+            # Create a plan, this will return a list of steps and plugins to execute.
+            planner = BasicPlanner()
+            plan = await planner.create_plan_async(ask, kernel)
+            print(plan)
 
-        # Execute the plan
-        filtered_hotels = await planner.execute_plan_async(plan, kernel)
-        
+            # Execute the plan
+            filtered_hotels = await planner.execute_plan_async(plan, kernel)
+            
+        except:
+            pass
+            
         # Parse the json string to object
         return quart.Response(response=filtered_hotels, status=200)
     else:

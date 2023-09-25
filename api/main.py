@@ -4,6 +4,11 @@ import quart_cors
 from quart import request
 from database import HOTELS
 
+import semantic_kernel as sk
+from semantic_kernel.planning.basic_planner import BasicPlanner
+import config.add_completion_service
+from plugins.HotelPlugin.Filter import Filter
+
 app = quart_cors.cors(quart.Quart(__name__), allow_origin=["http://localhost:3000","http://localhost:3001"])
 
 @app.get("/hotels")
@@ -42,7 +47,43 @@ async def filter_hotel():
 
 @app.post("/hotels/filter-with-semantickernel")
 async def filter_hotel_with_sk():
-    return quart.Response(response=json.dumps(HOTELS), status=200)
+    # We expect a filter
+    filter = await quart.request.get_json(force=True)
+    search = filter['search']
+
+    if search != "":
+        # Initialize the semantic kernel
+        kernel = sk.Kernel()
+        # Add a text or chat completion service using either:
+        # kernel.add_text_completion_service()
+        # kernel.add_chat_service()
+        kernel.add_completion_service()
+
+        # Import the native functions
+        kernel.import_skill(Filter(HOTELS), "HotelPlugin")
+
+        # Create a prompt
+        ask = "System: You summarize the users question into in a single sentence." + "\n"
+        #ask = ask + "User: What hotels do we have in Belgium which have a maximum of 2 stars and has a nice a cinema?"
+        ask = ask + "User: " + search
+        
+        filtered_hotels = json.dumps(HOTELS.copy())
+        try:
+            # Create a plan, this will return a list of steps and plugins to execute.
+            planner = BasicPlanner()
+            plan = await planner.create_plan_async(ask, kernel)
+            print(plan)
+
+            # Execute the plan
+            filtered_hotels = await planner.execute_plan_async(plan, kernel)
+            
+        except:
+            pass
+            
+        # Parse the json string to object
+        return quart.Response(response=filtered_hotels, status=200)
+    else:
+        return quart.Response(response=json.dumps(HOTELS), status=200)
 
 @app.post("/hotels")
 async def add_hotel():

@@ -20,4 +20,27 @@ This demostration was shown on following events:
 This example has two parts:
 
 1. an `ui` part which contains the Hotel booking website written in React.
+   
+   yarn start
+    
 2. an `api` part which contains the Hotel booking API written in Python and contains some custom logic and the Semantic Kernel SDK.
+
+    python main
+
+## Getting started
+
+Within the `api` we are using a LLM model, either hosted on OpenAI or Azure OpenAI. Before you can run the backend (as mentioned above), make sure you have defined you're OpenAI credentials in the [`.env` file](https://github.com/Azure-For-Everyone/sk-hotelfiltering/blob/main/api/.env) in the `api` folder. Specify the service you which to use by providing `AzureOpenAI` or `OpenAI` to the `GLOBAL__LLM_SERVICE` variable.
+
+    GLOBAL__LLM_SERVICE="AzureOpenAI" # or "OpenAI"
+
+    AZURE_OPEN_AI__DEPLOYMENT_TYPE="chat-completion"
+    AZURE_OPEN_AI__CHAT_COMPLETION_DEPLOYMENT_NAME="xxx"
+    AZURE_OPEN_AI__TEXT_COMPLETION_DEPLOYMENT_NAME="xxx"
+    AZURE_OPEN_AI__ENDPOINT="https://xxx.openai.azure.com"
+    AZURE_OPEN_AI__API_KEY="xxx"
+
+    OPEN_AI__MODEL_TYPE="chat-completion"
+    OPEN_AI__CHAT_COMPLETION_MODEL_ID="gpt-4"
+    OPEN_AI__TEXT_COMPLETION_MODEL_ID="text-davinci-003"
+    OPEN_AI__API_KEY="xxx"
+    OPEN_AI__ORG_ID="xxx"

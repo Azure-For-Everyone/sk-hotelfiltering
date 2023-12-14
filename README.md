@@ -9,7 +9,7 @@ This demostration was shown on following events:
 - [Belgium] Nov/23 - [SaaS local day](https://msevents.microsoft.com/event?id=1131853098)
 - [Austria] Dec/23 - [Unlocking AI Opportunities:](https://msevents.microsoft.com/event?id=1236497086)
 
-![Hotel website](./img/hotel-website.png)
+![Hotel website](./img/hotel-booking-semantic-kernel.gif)
 
 ## Why Semantic Kernel?
 

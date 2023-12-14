@@ -5,6 +5,7 @@ from semantic_kernel.skill_definition import (
 )
 from semantic_kernel.orchestration.sk_context import SKContext
 
+
 class Filter:
 
     def __init__(self, hotels):
@@ -30,6 +31,10 @@ class Filter:
         name="max_stars",
         description="The maximum number of stars the hotel has",
     )
+    @sk_function_context_parameter(
+        name="has_wifi",
+        description="Whether the hotel has wifi or not",
+    )
     def filter(self, context: SKContext) -> str:
 
         # Copy the list of hotels in a new var
@@ -40,7 +45,8 @@ class Filter:
             if context["name"] is not None and context["name"] != "":
                 name = context["name"]
                 print("name:" + name)
-                filtered_hotels = [hotel for hotel in filtered_hotels if name in hotel['name']]
+                filtered_hotels = [
+                    hotel for hotel in filtered_hotels if name in hotel['name']]
         except:
             pass
 
@@ -49,7 +55,8 @@ class Filter:
             if context["country"] is not None and context["country"] != "":
                 country = context["country"]
                 print("country:" + country)
-                filtered_hotels = [hotel for hotel in filtered_hotels if country in hotel['address']]
+                filtered_hotels = [
+                    hotel for hotel in filtered_hotels if country in hotel['address']]
         except:
             pass
 
@@ -58,7 +65,8 @@ class Filter:
             if context["min_stars"] is not None and context["min_stars"] > 0 and context["min_stars"] <= 5:
                 min_stars = context["min_stars"]
                 print("min_stars:" + str(min_stars))
-                filtered_hotels = [hotel for hotel in filtered_hotels if hotel['stars'] >= min_stars]
+                filtered_hotels = [
+                    hotel for hotel in filtered_hotels if hotel['stars'] >= min_stars]
         except:
             pass
 
@@ -67,9 +75,19 @@ class Filter:
             if context["max_stars"] is not None and context["max_stars"] > 0 and context["max_stars"] <= 5:
                 max_stars = context["max_stars"]
                 print("max_stars:" + str(max_stars))
-                filtered_hotels = [hotel for hotel in filtered_hotels if hotel['stars'] <= max_stars]
+                filtered_hotels = [
+                    hotel for hotel in filtered_hotels if hotel['stars'] <= max_stars]
         except:
             pass
-        
+
+        # If context contains has_wifi.
+        try:
+            if context["has_wifi"] is not None:
+                has_wifi = context["has_wifi"]
+                print("has_wifi:" + str(has_wifi))
+                filtered_hotels = [
+                    hotel for hotel in filtered_hotels if hotel['has_wifi'] == has_wifi]
+        except:
+            pass
+
         return json.dumps(filtered_hotels)
-    

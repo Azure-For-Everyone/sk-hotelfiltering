@@ -9,11 +9,14 @@ from semantic_kernel.planning.basic_planner import BasicPlanner
 import config.add_completion_service
 from plugins.HotelPlugin.Filter import Filter
 
-app = quart_cors.cors(quart.Quart(__name__), allow_origin=["http://localhost:3000","http://localhost:3001"])
+app = quart_cors.cors(quart.Quart(__name__), allow_origin=[
+                      "http://localhost:3000", "http://localhost:3001"])
+
 
 @app.get("/hotels")
 async def get_hotels():
     return quart.Response(response=json.dumps(HOTELS), status=200)
+
 
 @app.post("/hotels/filter")
 async def filter_hotel():
@@ -25,25 +28,30 @@ async def filter_hotel():
     # We expect a name, address, stars and beds
     name = filter['name']
     if name != "":
-        filtered_hotels = [hotel for hotel in filtered_hotels if name in hotel['name']]
+        filtered_hotels = [
+            hotel for hotel in filtered_hotels if name in hotel['name']]
 
     address = filter['address']
     if address != "":
-        filtered_hotels = [hotel for hotel in filtered_hotels if address in hotel['address']]
+        filtered_hotels = [
+            hotel for hotel in filtered_hotels if address in hotel['address']]
 
     stars = filter['stars']
     if stars != "Stars":
         # Convert the stars to int
         stars = int(stars)
-        filtered_hotels = [hotel for hotel in filtered_hotels if hotel['stars'] == stars]
+        filtered_hotels = [
+            hotel for hotel in filtered_hotels if hotel['stars'] == stars]
 
     beds = filter['beds']
     if beds != "Beds":
         # Convert the beds to int
         beds = int(beds)
-        filtered_hotels = [hotel for hotel in filtered_hotels if hotel['beds'] == beds]
+        filtered_hotels = [
+            hotel for hotel in filtered_hotels if hotel['beds'] == beds]
 
     return quart.Response(response=json.dumps(filtered_hotels), status=200)
+
 
 @app.post("/hotels/filter-with-semantickernel")
 async def filter_hotel_with_sk():
@@ -64,9 +72,9 @@ async def filter_hotel_with_sk():
 
         # Create a prompt
         ask = "System: You summarize the users question into in a single sentence." + "\n"
-        #ask = ask + "User: What hotels do we have in Belgium which have a maximum of 2 stars and has a nice a cinema?"
+        # ask = ask + "User: What hotels do we have in Belgium which have a maximum of 2 stars and has a nice a cinema?"
         ask = ask + "User: " + search
-        
+
         filtered_hotels = json.dumps(HOTELS.copy())
         try:
             # Create a plan, this will return a list of steps and plugins to execute.
@@ -76,14 +84,15 @@ async def filter_hotel_with_sk():
 
             # Execute the plan
             filtered_hotels = await planner.execute_plan_async(plan, kernel)
-            
+
         except:
             pass
-            
+
         # Parse the json string to object
         return quart.Response(response=filtered_hotels, status=200)
     else:
         return quart.Response(response=json.dumps(HOTELS), status=200)
+
 
 @app.post("/hotels")
 async def add_hotel():
@@ -91,10 +100,12 @@ async def add_hotel():
     HOTELS.append(request)
     return quart.Response(response='OK', status=200)
 
+
 @app.get("/logo.png")
 async def plugin_logo():
     filename = 'logo.png'
     return await quart.send_file(filename, mimetype='image/png')
+
 
 @app.get("/.well-known/ai-plugin.json")
 async def plugin_manifest():
@@ -103,6 +114,7 @@ async def plugin_manifest():
         text = f.read()
         return quart.Response(text, mimetype="text/json")
 
+
 @app.get("/openapi.yaml")
 async def openapi_spec():
     host = request.headers['Host']
@@ -110,8 +122,10 @@ async def openapi_spec():
         text = f.read()
         return quart.Response(text, mimetype="text/yaml")
 
+
 def main():
     app.run(debug=True, host="0.0.0.0", port=5003)
+
 
 if __name__ == "__main__":
     main()

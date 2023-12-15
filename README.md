@@ -1,4 +1,4 @@
-# Build Intelligent apps: Semantic Kernel in your application
+# Build Intelligent Apps: Semantic Kernel in your application
 
 In this repository we'll show you how to leverage [Semantic Kernel](https://github.com/microsoft/semantic-kernel) into an existing application. As an example we'll use how you can benefit from Semantic Kernel in a Hotel booking website. You can use natural language to search through a list of hotels.
 

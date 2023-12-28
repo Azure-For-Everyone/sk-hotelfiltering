@@ -3,11 +3,13 @@ import quart
 import quart_cors
 from quart import request
 from database import HOTELS
+import traceback
 
 import semantic_kernel as sk
 from semantic_kernel.planning.basic_planner import BasicPlanner
 import config.add_completion_service
 from plugins.HotelPlugin.Filter import Filter
+#from semantic_kernel.core_skills.text_skill import TextPlugin
 
 app = quart_cors.cors(quart.Quart(__name__), allow_origin=[
                       "http://localhost:3000", "http://localhost:3001"])
@@ -71,7 +73,7 @@ async def filter_hotel_with_sk():
         kernel.import_skill(Filter(HOTELS), "HotelPlugin")
 
         # Create a prompt
-        ask = "System: You summarize the users question into in a single sentence." + "\n"
+        ask = "System: " + "\n" #You summarize the users question into in a single sentence.
         # ask = ask + "User: What hotels do we have in Belgium which have a maximum of 2 stars and has a nice a cinema?"
         ask = ask + "User: " + search
 
@@ -85,8 +87,13 @@ async def filter_hotel_with_sk():
             # Execute the plan
             filtered_hotels = await planner.execute_plan_async(plan, kernel)
 
-        except:
-            pass
+        # except:
+        #     pass
+
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            traceback.print_exc()
+            return quart.Response(response=f"An error occurred: {e}", status=500)
 
         # Parse the json string to object
         return quart.Response(response=filtered_hotels, status=200)

@@ -5,6 +5,9 @@ import { getHotels, filterHotels, filterHotelsWithSemanticSearch } from './actio
 import './App.css';
 import Header from './Header';
 import Footer from './Footer';
+import config from './config'; // adjust the path if necessary
+
+console.log(config.API_URL);
 
 class App extends React.Component {
     constructor() {

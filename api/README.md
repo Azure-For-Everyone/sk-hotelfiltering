@@ -43,7 +43,7 @@ This sample has been tested with the following models:
 | OpenAI       | Chat Completion | gpt-4            |             1 | ✅        |
 | OpenAI       | Chat Completion | gpt-4            |          0314 | ✅        |
 | Azure OpenAI | Chat Completion | gpt-3.5-turbo    |          0301 | ✅        |
-| Azure OpenAI | Chat Completion | gpt-4       |          0314 | ✅        |
+| Azure OpenAI | Chat Completion | gpt-4            |          0314 | ✅        |
 
 ## Running the sample
 
